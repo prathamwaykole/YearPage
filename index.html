@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+*{font-size:40px;font-family:Arial}
+body{background-color:lightblue;}
+</style>
+</head>
+<center>
+<h1>Engineering App</h1>
+<form onsubmit="show()">
+<label for="name">Enter Name</label>
+<input type="text" id="name" placeholder="Please your Name"/>
+</br></br>
+<label for="year">Select Eng Year</label>
+<select id="year">
+<option value="FE">FE</option>
+<option value="SE">SE</option>
+<option value="TE">TE</option>
+<option value="BE">BE</option>
+</select>
+</br></br>
+<input type="submit"/>
+</form>
+<h2 id="msg"/>
+<script>
+function show()
+{
+event.preventDefault();
+let name = document.getElementById("name");
+let year = document.getElementById("year");
+let msg = document.getElementById("msg");
+
+let n = name.value;
+let y = year.value;
+
+if(n.trim === "")
+{
+alert("Please enter your name");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+if(! n.match("^[A-Za-z]+$"))
+{
+alert("Please enter Characters");
+msg.innerHTML="";
+name.focus();
+return;
+}
+let a= "Name ="+ n +" Year = " + y;
+msg.innerHTML = a;
+}
+</script>
+</center>
+</body>
+</html>
